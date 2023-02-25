@@ -1,4 +1,4 @@
-import {isArrayUnique, isPermutation, cleanWhiteSpaces} from '../Data Structures/Strings'
+import {isArrayUnique, isPermutation, cleanWhiteSpaces, isPalindromePermutation} from '../Data Structures/Strings'
 import { describe, it, expect } from 'vitest';
 
 
@@ -24,14 +24,27 @@ describe('isPermutation()', () => {
         expect(isPermutation(str1, str2)).toBeTruthy
         expect(isPermutation(str1, str3)).toBeFalsy
     })
+})
 
-    describe('cleanWhiteSpaces()', () => {
-        it('Should replaces all spaces in a string with "%20"', () => {
-            const str1 = 'a b c'
-            const str2 = 'a%20b%20c'
+describe('cleanWhiteSpaces()', () => {
+    it('Should replaces all spaces in a string with "%20"', () => {
+        const str1 = 'a b c'
+        const str2 = 'a%20b%20c'
 
-            expect(cleanWhiteSpaces(str1)).toEqual(str2)
-            expect(cleanWhiteSpaces(str1)).toBeTypeOf("string")
-        })
+        expect(cleanWhiteSpaces(str1)).toEqual(str2)
+        expect(cleanWhiteSpaces(str1)).toBeTypeOf("string")
+    })
+})
+
+describe('isPalindromePermutation()', () => {
+    it('Should return true if it is a permutation of a palindrome', () => {
+        const str1 = "Tact Coa"
+        const str2 = "chirpingmermaid"
+        const str3 = "aabc"
+        const str4 = ""
+        expect(isPalindromePermutation(str1)).toBeTruthy
+        expect(isPalindromePermutation(str2)).toBeFalsy
+        expect(isPalindromePermutation(str3)).toBeFalsy
+        expect(isPalindromePermutation(str4)).toBeTruthy
     })
 })

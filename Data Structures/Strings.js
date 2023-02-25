@@ -60,16 +60,47 @@ const getMap = (str) => {
 }
 
 // URLify
+
 const cleanWhiteSpaces = (str) => {
 
     let cleanedString = str.replace(/\s/g, '%20')
     return cleanedString
 }
 
-console.log(cleanWhiteSpaces('s s s'))
+// Palindrome Permutaion
 
+const isPalindromePermutation = (str) => {
+
+    let map = {}
+    let charCount = 0
+
+    for (let i = 0; i < str.length; i++) {
+        let currChar = str[i]
+
+        if (currChar == " ") {
+            continue
+        }
+
+        if (map[currChar]) {
+            delete map[currChar]
+        } else {
+            map[currChar] = true
+        }
+        currChar++
+    }
+
+    if (charCount % 2 == 0) {
+        return true
+    } else {
+        return false
+    }
+
+}
+
+console.log(isPalindromePermutation("Tact Coa"))
 module.exports = {
     isArrayUnique,
     isPermutation,
-    cleanWhiteSpaces
+    cleanWhiteSpaces,
+    isPalindromePermutation
 }
