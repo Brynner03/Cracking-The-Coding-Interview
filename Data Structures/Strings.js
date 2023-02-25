@@ -72,28 +72,30 @@ const cleanWhiteSpaces = (str) => {
 const isPalindromePermutation = (str) => {
 
     let map = {}
-    let charCount = 0
+    let normString = str.toLowerCase()
 
-    for (let i = 0; i < str.length; i++) {
-        let currChar = str[i]
-
-        if (currChar == " ") {
-            continue
+    for (let i = 0; i < normString.length; i++) {
+        let currentChar = normString[i]
+        
+        if (currentChar !== ' ') {
+            map[currentChar] = map[currentChar] ? map[currentChar] += 1 : 1
         }
-
-        if (map[currChar]) {
-            delete map[currChar]
-        } else {
-            map[currChar] = true
-        }
-        currChar++
     }
 
-    if (charCount % 2 == 0) {
-        return true
-    } else {
-        return false
+    let hasOddFreq = false
+
+    for (const char in map) {
+        let freq = map[char]
+        if (freq %2 !== 0) {
+            if (hasOddFreq) {
+                return false
+            } else {
+                hasOddFreq = true
+            }
+        }
     }
+
+    return true
 
 }
 
