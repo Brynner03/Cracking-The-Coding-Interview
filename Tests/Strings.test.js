@@ -1,4 +1,4 @@
-import {isArrayUnique, isPermutation, cleanWhiteSpaces, isPalindromePermutation} from '../Data Structures/Strings'
+import {isArrayUnique, isPermutation, cleanWhiteSpaces, isPalindromePermutation, oneAway} from '../Data Structures/Strings'
 import { describe, it, expect } from 'vitest';
 
 
@@ -46,5 +46,16 @@ describe('isPalindromePermutation()', () => {
         expect(isPalindromePermutation(str2)).toBeFalsy
         expect(isPalindromePermutation(str3)).toBeFalsy
         expect(isPalindromePermutation(str4)).toBeTruthy
+    })
+})
+
+describe('oneAway()', () => {
+    it('Should return true if there was less than one change between the strings.', () => {
+        const str1 = "pale"
+        const str2 = 'ple'
+        const str3 = "bake"
+
+        expect(oneAway(str1, str2)).toEqual(true)
+        expect(oneAway(str1, str3)).toEqual(false)
     })
 })
