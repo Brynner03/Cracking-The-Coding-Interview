@@ -99,10 +99,48 @@ const isPalindromePermutation = (str) => {
 
 }
 
-console.log(isPalindromePermutation("Tact Coa"))
+// Return true if the second string is one away or none away
+// Return false if the second string is more than one away.
+
+// hello
+// hell
+
+const oneAway = (str1, str2) => {
+
+    const map = {}
+
+    for (let i = 0; i < str1.length; i++) {
+        let currChar = str1[i]
+        if (map[currChar]) {
+            map[currChar] += 1
+        } else {
+            map[currChar] = 1
+        }
+    }
+    
+    for (let j = 0; j < str2.length; j++) {
+        let str2Char = str2[j]
+        if (map[str2Char]) {
+            map[str2Char] --
+        } else {
+            map[str2Char] = 1
+        }
+        if (map[str2Char] == 0) {
+            delete map[str2Char]
+        }
+    }
+
+    if (Object.values(map).length > 2) {
+        return false
+    } else {
+        return true
+    }
+}
+
 module.exports = {
     isArrayUnique,
     isPermutation,
     cleanWhiteSpaces,
-    isPalindromePermutation
+    isPalindromePermutation,
+    oneAway
 }
