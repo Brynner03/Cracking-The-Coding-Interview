@@ -8,9 +8,9 @@ describe('isArrayUnique()', () => {
         const str2 = 'loo'
         const str3 = 'l'
 
-        expect(isArrayUnique(str1)).toBeTruthy
-        expect(isArrayUnique(str2)).toBeFalsy
-        expect(isArrayUnique(str3)).toBeTruthy
+        expect(isArrayUnique(str1)).toEqual(true)
+        expect(isArrayUnique(str2)).toEqual(false)
+        expect(isArrayUnique(str3)).toEqual(true)
     })
 })
 
@@ -21,8 +21,8 @@ describe('isPermutation()', () => {
 
         const str3 = 'buie'
 
-        expect(isPermutation(str1, str2)).toBeTruthy
-        expect(isPermutation(str1, str3)).toBeFalsy
+        expect(isPermutation(str1, str2)).toEqual(true)
+        expect(isPermutation(str1, str3)).toEqual(false)
     })
 })
 
@@ -42,10 +42,10 @@ describe('isPalindromePermutation()', () => {
         const str2 = "chirpingmermaid"
         const str3 = "aabc"
         const str4 = ""
-        expect(isPalindromePermutation(str1)).toBeTruthy
-        expect(isPalindromePermutation(str2)).toBeFalsy
-        expect(isPalindromePermutation(str3)).toBeFalsy
-        expect(isPalindromePermutation(str4)).toBeTruthy
+        expect(isPalindromePermutation(str1)).toEqual(true)
+        expect(isPalindromePermutation(str2)).toEqual(false)
+        expect(isPalindromePermutation(str3)).toEqual(false)
+        expect(isPalindromePermutation(str4)).toEqual(true)
     })
 })
 
