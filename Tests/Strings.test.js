@@ -1,4 +1,4 @@
-import {isArrayUnique, isPermutation, cleanWhiteSpaces, isPalindromePermutation, oneAway, compressString} from '../Data Structures/Strings'
+import {isArrayUnique, isPermutation, cleanWhiteSpaces, isPalindromePermutation, oneAway, compressString, rotateMatrix} from '../Data Structures/Strings'
 import { describe, it, expect } from 'vitest';
 
 
@@ -72,5 +72,12 @@ describe('compressString()', () => {
     it ('Should return original string if the compressed string is not shorter than the original string.', () => {
         const str2 = "abc"
         expect(compressString(str2)).toEqual("abc")
+    })
+})
+
+describe('rotateMatrix()', () => {
+    it('Should rotate the matrix 90 degrees', () => {
+        let arr = [[1,2,3], [4,5,6], [7,8,9]]
+        expect(rotateMatrix(arr)).toEqual([[7,4,1], [8,5,2], [9,6,3]])
     })
 })

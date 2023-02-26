@@ -132,9 +132,8 @@ const oneAway = (str1, str2) => {
 
     if (Object.values(map).length > 2) {
         return false
-    } else {
+    } 
         return true
-    }
 }
 
 const compressString = (str) => {
@@ -160,11 +159,48 @@ const compressString = (str) => {
 
 }
 
+const rotateMatrix = (arr) => {
+    
+    let left = 0
+    let right = arr.length - 1
+
+    while( left  < right) {
+        for (let i = 0; i < right - left; i++) {
+            let top = left 
+            let bottom = right
+
+            // Save the top left variable
+            let topLeft = arr[top][left + i] 
+
+            // Move the bottom left into the top left
+            arr[top][left + i] = arr[bottom - i][left]
+
+            // Move bottom right into bottom left
+            arr[bottom - i][left] = arr[bottom] [right - i]
+
+            // Move top right into bottom right
+            arr[bottom][right - i] = arr[top + i][right]
+
+            // Move top left into top right
+            arr[top + i][right] = topLeft
+        }
+        right--
+        left++
+    }
+
+    return arr
+
+}
+
+let arr = [[1,2,3], [4,5,6], [7,8,9]]
+console.log(rotateMatrix(arr))
+
 module.exports = {
     isArrayUnique,
     isPermutation,
     cleanWhiteSpaces,
     isPalindromePermutation,
     oneAway,
-    compressString
+    compressString,
+    rotateMatrix
 }
