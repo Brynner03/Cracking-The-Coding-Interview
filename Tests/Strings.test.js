@@ -78,6 +78,8 @@ describe('compressString()', () => {
 describe('rotateMatrix()', () => {
     it('Should rotate the matrix 90 degrees', () => {
         let arr = [[1,2,3], [4,5,6], [7,8,9]]
+        let newArr = [[32,42,53], [43,24,64], [23,54, 64]]
         expect(rotateMatrix(arr)).toEqual([[7,4,1], [8,5,2], [9,6,3]])
+        expect(rotateMatrix(newArr)).toEqual([[23,43,32], [54, 24, 42], [64, 64, 53]])
     })
 })
