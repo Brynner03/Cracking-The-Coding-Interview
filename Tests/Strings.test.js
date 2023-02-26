@@ -1,4 +1,4 @@
-import {isArrayUnique, isPermutation, cleanWhiteSpaces, isPalindromePermutation, oneAway} from '../Data Structures/Strings'
+import {isArrayUnique, isPermutation, cleanWhiteSpaces, isPalindromePermutation, oneAway, compressString} from '../Data Structures/Strings'
 import { describe, it, expect } from 'vitest';
 
 
@@ -53,9 +53,24 @@ describe('oneAway()', () => {
     it('Should return true if there was less than one change between the strings.', () => {
         const str1 = "pale"
         const str2 = 'ple'
-        const str3 = "bake"
 
         expect(oneAway(str1, str2)).toEqual(true)
-        expect(oneAway(str1, str3)).toEqual(false)
+    })
+    it('Should return false if the strings is not one edit away', () => {
+        const str1 = "pale"
+        const str2 = "bake"
+        expect(oneAway(str1, str2)).toEqual(false)
+    })
+})
+
+describe('compressString()', () => {
+    it('Should compress the strings accordingly.', () => {
+        const str1 = "aabcccc"
+
+        expect(compressString(str1)).toEqual("a2b1c4")
+    })
+    it ('Should return original string if the compressed string is not shorter than the original string.', () => {
+        const str2 = "abc"
+        expect(compressString(str2)).toEqual("abc")
     })
 })

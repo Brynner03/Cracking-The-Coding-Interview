@@ -137,10 +137,34 @@ const oneAway = (str1, str2) => {
     }
 }
 
+const compressString = (str) => {
+
+    let compString = ""
+    let count = 1
+
+    for (let i = 0; i < str.length; i ++) {
+
+        if (str[i] == str[i + 1]) {
+            count++
+        } else {
+            compString += str[i] + count
+            count = 1
+        }
+    }
+
+    if (str.length <= compString.length) {
+        return str
+    } else {
+        return compString
+    }
+
+}
+
 module.exports = {
     isArrayUnique,
     isPermutation,
     cleanWhiteSpaces,
     isPalindromePermutation,
-    oneAway
+    oneAway,
+    compressString
 }
