@@ -156,19 +156,18 @@ const rotateMatrix = (arr) => {
 };
 
 const zeroMatrix = (arr) => {
-
-  let rows = arr.length
-  let columns = arr[0].length
-  let rowZero = false
+  let rows = arr.length;
+  let columns = arr[0].length;
+  let rowZero = false;
 
   for (let r = 0; r < rows; r++) {
     for (let c = 0; c < columns; c++) {
       if (arr[r][c] == 0) {
-        arr[0][c] = 0
+        arr[0][c] = 0;
         if (r > 0) {
-          arr[r][0] = 0
+          arr[r][0] = 0;
         } else {
-          rowZero = true
+          rowZero = true;
         }
       }
     }
@@ -177,24 +176,35 @@ const zeroMatrix = (arr) => {
   for (let r = 1; r < rows; r++) {
     for (let c = 1; c < columns; c++) {
       if (arr[0][c] == 0 || arr[r][0] == 0) {
-        arr[r][c] = 0
+        arr[r][c] = 0;
       }
     }
   }
 
   if (arr[0][0] == 0) {
     for (let r = 0; r < rows; r++) {
-      arr[r][0] = 0
+      arr[r][0] = 0;
     }
   }
 
   if (rowZero) {
-    for ( let c = 0; c < columns; c++) {
-      arr[0][c] = 0
+    for (let c = 0; c < columns; c++) {
+      arr[0][c] = 0;
     }
   }
-  return arr
-}
+  return arr;
+};
+
+const stringRotation = (str1, str2) => {
+  if (!str1 || !str2) {
+    return false;
+  }
+  if (str1.length !== str2.length) {
+    return false;
+  }
+
+  return (str1 + str1).includes(str2);
+};
 
 module.exports = {
   isArrayUnique,
@@ -204,5 +214,6 @@ module.exports = {
   oneAway,
   compressString,
   rotateMatrix,
-  zeroMatrix
+  zeroMatrix,
+  stringRotation,
 };
