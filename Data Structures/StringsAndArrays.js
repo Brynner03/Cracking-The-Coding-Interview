@@ -196,14 +196,6 @@ const zeroMatrix = (arr) => {
   return arr
 }
 
-let newArr = [
-  [32, 4, 53],
-  [43, 0, 64],
-  [23, 4, 64],
-];
-
-console.log(zeroMatrix(newArr))
-
 module.exports = {
   isArrayUnique,
   isPermutation,
