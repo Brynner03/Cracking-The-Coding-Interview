@@ -155,6 +155,55 @@ const rotateMatrix = (arr) => {
   return arr;
 };
 
+const zeroMatrix = (arr) => {
+
+  let rows = arr.length
+  let columns = arr[0].length
+  let rowZero = false
+
+  for (let r = 0; r < rows; r++) {
+    for (let c = 0; c < columns; c++) {
+      if (arr[r][c] == 0) {
+        arr[0][c] = 0
+        if (r > 0) {
+          arr[r][0] = 0
+        } else {
+          rowZero = true
+        }
+      }
+    }
+  }
+
+  for (let r = 1; r < rows; r++) {
+    for (let c = 1; c < columns; c++) {
+      if (arr[0][c] == 0 || arr[r][0] == 0) {
+        arr[r][c] = 0
+      }
+    }
+  }
+
+  if (arr[0][0] == 0) {
+    for (let r = 0; r < rows; r++) {
+      arr[r][0] = 0
+    }
+  }
+
+  if (rowZero) {
+    for ( let c = 0; c < columns; c++) {
+      arr[0][c] = 0
+    }
+  }
+  return arr
+}
+
+let newArr = [
+  [32, 4, 53],
+  [43, 0, 64],
+  [23, 4, 64],
+];
+
+console.log(zeroMatrix(newArr))
+
 module.exports = {
   isArrayUnique,
   isPermutation,
@@ -163,4 +212,5 @@ module.exports = {
   oneAway,
   compressString,
   rotateMatrix,
+  zeroMatrix
 };
