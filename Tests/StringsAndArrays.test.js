@@ -1,4 +1,4 @@
-import * as exports from "../Data Structures/Strings";
+import * as exports from "../Data Structures/StringsAndArrays";
 import { describe, it, expect } from "vitest";
 
 describe("isArrayUnique()", () => {
@@ -98,3 +98,29 @@ describe("rotateMatrix()", () => {
     ]);
   });
 });
+
+describe("zeroMatrix()", () => {
+  it("Should check if a row has a 0 and convert that row into zeros", () => {
+    const array = [
+      [1,2,3],
+      [2,4,0],
+      [4,0,3],
+    ];
+
+    expect(exports.zeroMatrix(array)).toEqual([
+      [1, 0, 0],
+      [0, 0, 0],
+      [0, 0, 0],
+    ]);
+  });
+});
+
+describe('stringRotation()', () => {
+  it('Check if one word is a rotation of another word', () => {
+    const str1 = "waterbottle"
+    const str2 = "ewaterbottl"
+    const str3 = "hello"
+    expect(exports.stringRotation(str1, str2)).toEqual(true)
+    expect(exports.stringRotation(str1, str3)).toEqual(false)
+  })
+})
